@@ -27,6 +27,16 @@ public class Adresse {
 		this.ville = ville;
 		this.pays = pays;
 	}
+	
+	
+	
+	public void afficherInfos(){
+		System.out.println("L'adresse du passager est : ");
+		System.out.println("\t - adresse : " + adresse);
+		System.out.println("\t - code postal : " + codePostal);
+		System.out.println("\t - ville : " + ville);
+		System.out.println("\t - pays : " + pays);
+	}
 
 
 	/**

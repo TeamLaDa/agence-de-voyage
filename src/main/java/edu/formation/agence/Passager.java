@@ -39,6 +39,18 @@ public class Passager {
 		this.nom = nom;
 		this.prenom = prenom;
 	}
+	
+	
+	
+
+	public void afficherInfos(){
+		System.out.println("Les informations du passager est : ");
+		System.out.println("\t - identification : " + id);
+		System.out.println("\t - nom : " + nom);
+		System.out.println("\t - prenom : " + prenom);
+	}
+	
+	
 
 	/**
 	 * @return the id
