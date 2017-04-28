@@ -9,7 +9,7 @@ import java.util.List;
  * @author ajc
  *
  */
-public interface ILectureFichiers {
+public interface ILectureFichiers<T> {
 	
 	public List<T> findAll();
 	
