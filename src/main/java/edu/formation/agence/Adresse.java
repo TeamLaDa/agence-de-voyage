@@ -15,6 +15,11 @@ public class Adresse {
 	public String pays;
 	
 	
+	
+	public Adresse() {
+		super();
+	}
+	
 	/**
 	 * @param adresse
 	 * @param codePostal

@@ -7,9 +7,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 
 import Interface.AdresseDAO;
+import Interface.PassagerDAO;
 
 /**
  * @author ajc
@@ -19,15 +21,15 @@ public class MainAgence {
 
 	/**
 	 * @param args
-	 * @throws FileNotFoundException 
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws IOException {
 		
-		String path = "fichiers/adresses.csv";
+		String path = "fichiers/passagers.csv";
 		
-		AdresseDAO adressefile = new AdresseDAO(path);
-		List<Adresse> adresseTest = adressefile.findAll();
-		System.out.println(adresseTest);
+		PassagerDAO passagerfile = new PassagerDAO(path);
+		List<Passager> passagerTest = passagerfile.findAll();
+		System.out.println(passagerTest);
 		
 		
 //		FileReader fr = new FileReader(f1);
