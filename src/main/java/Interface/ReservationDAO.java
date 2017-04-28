@@ -7,6 +7,6 @@ package Interface;
  * @author ajc
  *
  */
-public class ReservationDAO {
+public class ReservationDAO implements ILectureFichiers{
 
 }
