@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.util.List;
 
 import edu.formation.agence.Adresse;
+import edu.formation.agence.Passager;
 
 /**
  * @author ajc
@@ -34,7 +35,24 @@ public class AdresseDAO implements ILectureFichiers<Adresse>{
 	@Override
 	public Adresse findById(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		String op;
+		op = this.buffer_in.readLine();
+		Adresse adresse = new Adresse();
+		
+		while((op = this.buffer_in.readLine()) != null){
+			String tab_op[] = op.split(";");
+			int id_passager = Integer.parseInt(tab_op[0]);
+			
+			if(id_passager == id){
+				int id_adresse = Integer.parseInt(tab_op[3]);
+				passager.setAdresse(adresseDAO.findById(id_adresse));
+				passager.setNom(tab_op[1]);
+				passager.setPrenom(tab_op[2]);
+			}
+
+		}
+		this.buffer_in.close();
+		return passager;
 	}
 
 }
