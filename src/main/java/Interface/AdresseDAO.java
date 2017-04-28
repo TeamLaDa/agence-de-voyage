@@ -32,7 +32,7 @@ public class AdresseDAO implements ILectureFichiers<Adresse>{
 	}
 
 	@Override
-	public Adresse findById(Long id) {
+	public Adresse findById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

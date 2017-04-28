@@ -3,6 +3,7 @@
  */
 package Interface;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -11,8 +12,8 @@ import java.util.List;
  */
 public interface ILectureFichiers<T> {
 	
-	public List<T> findAll();
+	public List<T> findAll() throws IOException;
 	
-	public T findById(Long id);
+	public T findById(Integer id) throws IOException;
 
 }

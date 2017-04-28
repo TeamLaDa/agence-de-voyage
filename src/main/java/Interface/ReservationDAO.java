@@ -32,7 +32,7 @@ public class ReservationDAO implements ILectureFichiers<Reservation>{
 	}
 
 	@Override
-	public Reservation findById(Long id) {
+	public Reservation findById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
