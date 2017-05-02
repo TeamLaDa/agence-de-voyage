@@ -29,7 +29,7 @@ public class PassagerDaoSql implements PassagerDao {
 			 * Etape 1 : on crée la connexion
 			 */
 			
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agence_voyage", "user", "password");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agencedevoyage", "user", "password");
 			
 			/*
 			 * Etape 2 : Creation du Statement
@@ -79,6 +79,11 @@ public class PassagerDaoSql implements PassagerDao {
 		
 	}
 
+	
+	
+	
+	
+	
 	@Override
 	public Passager findById(Integer id) {
 		
@@ -97,7 +102,7 @@ public class PassagerDaoSql implements PassagerDao {
 			 * Etape 1 : on crée la connexion
 			 */
 			
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agence_voyage", "user", "password");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agencedevoyage", "user", "password");
 			
 			/*
 			 * Etape 2 : Creation du Statement
