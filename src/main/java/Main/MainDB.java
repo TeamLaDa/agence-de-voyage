@@ -1,7 +1,7 @@
 /**
  * 
  */
-package agence;
+package Main;
 
 import java.util.List;
 
