@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.formation.agence.Adresse;
+
 import edu.formation.agence.Passager;
 
 public class PassagerDaoSql implements PassagerDao {
@@ -48,8 +48,7 @@ public class PassagerDaoSql implements PassagerDao {
 			 * Etape 4 : parcours des resultats
 			 */
 			
-			//On declare une variable indiquant le numéro de ligne ou l'on se situe au cours du parcours
-			int num_ligne =0;
+			
 			while (resultSet.next()) {
 				
 				Passager passager = new Passager(resultSet.getInt("idPassager"));
@@ -57,7 +56,6 @@ public class PassagerDaoSql implements PassagerDao {
 				passager.setPrenom(resultSet.getString("prenom"));		
 				
 				passager.setAdresse(adresseDao.findById(resultSet.getInt("idAdd")));
-				num_ligne++;
 				
 				listePassagers.add(passager);				
 			}
@@ -76,7 +74,7 @@ public class PassagerDaoSql implements PassagerDao {
 			System.err.println("Impossible de se connnecter à la BDD.");
 			e.printStackTrace();
 		}
-		
+				
 		return listePassagers;
 		
 	}
@@ -116,20 +114,20 @@ public class PassagerDaoSql implements PassagerDao {
 			String id_Passager = String.valueOf(id);
 			
 			//La requete permet de récuperer les informations au numéro de ligne demandé
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM passager WHERE idPassager="+id_Passager);
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM `passager` WHERE idPassager="+id_Passager);
 			
 			/*
 			 * Etape 4 : on récupere les informations associées à l'identifiant donné
 			 */
 			
-			if(resultSet != null){
 				
+			while (resultSet.next()) {
 				passager = new Passager(id);
 				passager.setNom(resultSet.getString("nom"));
 				passager.setPrenom(resultSet.getString("prenom"));		
 				
 				passager.setAdresse(adresseDao.findById(resultSet.getInt("idAdd")));	
-			}
+			}	
 			
 			connection.close();
 		} 
