@@ -7,7 +7,10 @@ import java.util.List;
 
 import Interface.AdresseDao;
 import Interface.AdresseDaoSql;
+import Interface.ReservationDao;
+import Interface.ReservationDaoSql;
 import edu.formation.agence.Adresse;
+import edu.formation.agence.Reservation;
 
 /**
  * @author ajc
@@ -29,12 +32,23 @@ public class MainDB {
 		// J'appelle la methode findAll pour récupérer toutes les adresses stockées
 		List<Adresse> listeAdresses = adresseDao.findAll();
 		// Affiche un exemple
-		System.out.println(listeAdresses.get(3));
+		listeAdresses.get(3).afficherInfos();
 		
 		// j'appelle la méthode findById pour récupérer l'adresse du passager sélectionné
 		Adresse adresse = adresseDao.findById(1);
-		// Affiche l'exemple
-		System.out.println(adresse);
+		// Affiche un exemple
+		adresse.afficherInfos();
+		
+		
+		/*
+		 * Série de tests pour la réservation
+		 */
+		// J'initialise le dao SQL reservation
+		ReservationDao reservationDao = new ReservationDaoSql();
+		// J'appelle la methode findAll pour récupérer toutes les adresses stockées
+		List<Reservation> listeReservation = reservationDao.findAll();
+		// Affiche un exemple
+		listeReservation.get(3).afficherInfos();
 	}
 
 }
