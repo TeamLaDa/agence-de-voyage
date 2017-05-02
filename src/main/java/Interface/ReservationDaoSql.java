@@ -156,10 +156,7 @@ public class ReservationDaoSql implements ReservationDao {
 		} catch (SQLException e) {
 			System.err.println("Erreur lors de la connexion à la BDD !");
 			e.printStackTrace();
-		} catch (NullPointerException e) {
-			System.err.println("L'identification est mauvaise.");
-			e.printStackTrace();		}
-		finally {
+		} finally {
 			if (connexion != null) {
 				
 			}try {
@@ -190,7 +187,6 @@ public class ReservationDaoSql implements ReservationDao {
 	 */
 	@Override
 	public List<Reservation> findByPassager(Passager passager) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
