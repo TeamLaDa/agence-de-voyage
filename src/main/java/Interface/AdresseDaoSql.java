@@ -60,18 +60,28 @@ public class AdresseDaoSql implements AdresseDao {
 				// cad, on va récupérer chaque valeur de chaque colonne
 				// Je crée l'objet adresse
 				Adresse adresse = new Adresse();
+				// Appel des mutateurs
+				adresse.setIdAdd(resultSet.getInt("idAdd"));
+				adresse.setAdresse(resultSet.getString("adresse"));
+				adresse.setCodePostal(resultSet.getString("codePostal"));
+				adresse.setVille(resultSet.getString("ville"));
+				adresse.setPays(resultSet.getString("pays"));
+				// J'ajoute l'objet adresse ainsi muté à la liste des adresses
+				ListeAdresse.add(adresse);
 			}
 			
 			
 			
 		} catch (ClassNotFoundException e) {
+			System.err.println("classe not found");
 			e.printStackTrace();
 		} catch (SQLException e) {
 			System.err.println("Erreur lors de la connexion à la BDD !");
 			e.printStackTrace();
 		}
 
-		return null;
+		// Je retourne la liste des adresses de la BDDonnées
+		return ListeAdresse;
 		
 	}
 
