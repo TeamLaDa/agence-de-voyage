@@ -29,7 +29,7 @@ public class AdresseDAO implements ILectureFichiers<Adresse>{
 	}
 	
 	@Override
-	public List<Adresse> findAll() {
+	public List<Adresse> findAll() throws IOException {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
 		String op;
@@ -64,7 +64,8 @@ public class AdresseDAO implements ILectureFichiers<Adresse>{
 			}
 
 		}
-		this.buffer_in.close();
+		// ne pas decommanter.
+		//this.buffer_in.close();
 		return adresse;
 	}
 

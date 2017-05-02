@@ -25,18 +25,32 @@ public class MainAgence {
 	 */
 	public static void main(String[] args) throws IOException {
 		
-		String path = "fichiers/passagers.csv";
+		String pathpassager = "fichiers/passagers.csv";
+		PassagerDAO passagerfile = new PassagerDAO(pathpassager);
 		
-		PassagerDAO passagerfile = new PassagerDAO(path);
+		
+		String pathadresse = "fichiers/adresses.csv";;
+		AdresseDAO  adresseDAO = new AdresseDAO(pathadresse);
+		
+		passagerfile.setAdresseDAO(adresseDAO);
+		
 		List<Passager> passagerTest = passagerfile.findAll();
-		System.out.println(passagerTest);
+
+		for (Passager passager : passagerTest) {
+			passager.afficherInfos();
+		}
 		
 		
 //		FileReader fr = new FileReader(f1);
 //		BufferedReader br = new BufferedReader(fr);
 //		
 //		String c;
-//		
+		
+		
+//				List<Passager> passagerTest = passagerfile.findAll();
+
+		
+		
 //		while ((c=adressefile.readLine() != null) {
 //			System.out.println(c);
 //		}
