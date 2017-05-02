@@ -50,6 +50,7 @@ public class Passager
 		System.out.println("\t - identification : " + idPas);
 		System.out.println("\t - nom : " + nom);
 		System.out.println("\t - prenom : " + prenom);
+		System.out.println("");
 	}
 
     /**

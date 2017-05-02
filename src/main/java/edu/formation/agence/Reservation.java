@@ -57,6 +57,7 @@ public class Reservation
 		System.out.println("\t - date : " + date);
 		System.out.println("\t - numero " + numero);
 		System.out.println("\t - etat : " + etat);
+		System.out.println("");
 	}
 
     /**

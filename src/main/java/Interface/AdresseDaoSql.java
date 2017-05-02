@@ -50,7 +50,6 @@ public class AdresseDaoSql implements AdresseDao {
 			 * Etape 3 : Execution de la requête SQL
 			 */
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM adresse");
-			System.out.println(resultSet);
 			
 			/*
 			 * Etape 4 : Parcours des reusltats
@@ -75,7 +74,7 @@ public class AdresseDaoSql implements AdresseDao {
 			
 			
 		} catch (ClassNotFoundException e) {
-			System.err.println("classe not found");
+			System.err.println("La classe de l'objet est introuvable.");
 			e.printStackTrace();
 		} catch (SQLException e) {
 			System.err.println("Erreur lors de la connexion à la BDD !");
@@ -117,7 +116,6 @@ public class AdresseDaoSql implements AdresseDao {
 			 * Etape 3 : Execution de la requête SQL
 			 */
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM adresse");
-			System.out.println(resultSet);
 			
 			/*
 			 * Etape 4 : Parcours des reusltats

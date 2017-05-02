@@ -62,6 +62,7 @@ public class Adresse
 		System.out.println("\t - code postal : " + codePostal);
 		System.out.println("\t - ville : " + ville);
 		System.out.println("\t - pays : " + pays);
+		System.out.println("");
 	}
 
     /**
