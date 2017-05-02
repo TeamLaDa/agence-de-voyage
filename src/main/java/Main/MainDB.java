@@ -49,6 +49,11 @@ public class MainDB {
 		List<Reservation> listeReservation = reservationDao.findAll();
 		// Affiche un exemple
 		listeReservation.get(3).afficherInfos();
+		
+		// j'appelle la méthode findById pour récupérer l'adresse du passager sélectionné
+		Reservation reservation = reservationDao.findById(10);
+		// Affiche un exemple
+		reservation.afficherInfos();
 	}
 
 }

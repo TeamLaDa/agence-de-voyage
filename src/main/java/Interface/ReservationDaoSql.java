@@ -92,15 +92,99 @@ public class ReservationDaoSql implements ReservationDao {
 		
 	}
 
+	
+	
+	
+	
+	
 	/* (non-Javadoc)
 	 * @see Interface.Dao#findById(java.lang.Object)
 	 */
 	@Override
 	public Reservation findById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		// Initialisation de mon objet resservation de type Reservation
+        Reservation resservation = null;
+        // Initialisation de ma connexion
+		Connection connexion = null;
+
+		try {
+			/*
+			 * Etape 0 : chargement du pilote
+			 */
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			/*
+			 * Etape 1 : se connecter à la BDD 
+			 */
+			connexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/agencedevoyage", "user", "password");
+			
+			/*
+			 * Etape 2 : Création du statement
+			 */
+			Statement statement = connexion.createStatement();
+			
+			/*
+			 * Etape 3 : Execution de la requête SQL
+			 */
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM reservation");
+
+			/*
+			 * Etape 4 : Parcours des reusltats
+			 */
+			while (resultSet.next()) {
+				// Chaque ligne du tableau de résultat peur être exploitée
+				// cad, on va récupérer chaque valeur de chaque colonne
+				if (resultSet.getInt("idResa") == id){
+					// Appel des mutateurs
+					resservation = new Reservation(id);
+					resservation.setDate(resultSet.getDate("dateReservation"));
+					resservation.setNumero(resultSet.getString("numero"));
+					if (resultSet.getString("etat").equals(EtatReservation.ANNULEE.getLabel())) {
+						resservation.setEtat(EtatReservation.ANNULEE);
+	                }
+	                else
+	                {
+	                	resservation.setEtat(EtatReservation.CONFIRMEE);
+	                }
+				}
+			}
+			
+
+		} catch (ClassNotFoundException e) {
+			System.err.println("La classe de l'objet est introuvable.");
+			e.printStackTrace();
+		} catch (SQLException e) {
+			System.err.println("Erreur lors de la connexion à la BDD !");
+			e.printStackTrace();
+		} catch (NullPointerException e) {
+			System.err.println("L'identification est mauvaise.");
+			e.printStackTrace();		}
+		finally {
+			if (connexion != null) {
+				
+			}try {
+				connexion.close();
+			} catch (Exception e2) {
+				System.err.println("Le fichier ne peut pas être fermé !");
+				e2.printStackTrace();
+			}
+		}
+		
+		
+		// Je retourne l'objet resservation de type Reservation
+		return resservation;
+
+
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
 	/* (non-Javadoc)
 	 * @see Interface.ReservationDao#findByPassager(edu.formation.agence.Passager)
 	 */

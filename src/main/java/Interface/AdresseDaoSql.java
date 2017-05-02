@@ -27,7 +27,7 @@ public class AdresseDaoSql implements AdresseDao {
 	@Override
 	public List<Adresse> findAll() {
 		
-		// Initialiser ma liste d'adresses
+		// Initialisation de ma liste ListeAdresse de type Adresse
 		List<Adresse> ListeAdresse = new ArrayList<Adresse>();
 		
 		try {
@@ -91,8 +91,9 @@ public class AdresseDaoSql implements AdresseDao {
 	 */
 	@Override
 	public Adresse findById(Integer id) {
-		// Initialiser ma liste d'adresses
+		// Initialisation de mon objet adresse de type Adresse
 		Adresse adresse = new Adresse();
+		// Initialisation de l'objet connexion de type Connection
 		Connection connexion = null;
 		
 		
