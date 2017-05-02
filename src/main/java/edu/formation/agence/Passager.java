@@ -3,128 +3,122 @@
  */
 package edu.formation.agence;
 
-import java.util.List;
+import edu.formation.agence.Adresse;
 
 /**
- * @author ajc
+ * Classe Passager qui représente le passager de la réservation
+ * 
+ * @author Seme
  *
  */
-public class Passager {
+public class Passager
+{
+    /**
+     * Id du passager
+     */
+    private int idPas;
+    /**
+     * Nom du passager
+     */
+    private String nom;
+    /**
+     * Prenom du passager
+     */
+    private String prenom;
 
-	private Integer id;
-	private String nom;
-	private String prenom;
-	private Adresse adresse; // code permettant l'association entre la classe
-								// Adresse et Passager
-	private List<Reservation> reservationList;
+    /**
+     * Adresse du passager
+     */
+    private Adresse adresse;
 
-	public static Integer nbPassagers = 0;
+    /**
+     * Constructeur
+     * 
+     * @param idPas
+     *            Identifiant technique du passager
+     */
+    public Passager(int idPas)
+    {
+        this.idPas = idPas;
+    }
 
-	/**
-	 * Constructeur par défaut
-	 */
-	public Passager() {
-		this.id = ++nbPassagers;
-	}
+    /**
+     * @return the idPas
+     */
+    public int getIdPas()
+    {
+        return idPas;
+    }
 
-	/**
-	 * Constructeur incluant le nom et le prénom
-	 * 
-	 * @param id
-	 * @param nom
-	 * @param prenom
-	 */
-	public Passager(String nom, String prenom) {
-		this.id = ++nbPassagers;
-		this.nom = nom;
-		this.prenom = prenom;
-	}
-	
-	
-	
+    /**
+     * @param idPas
+     *            the idPas to set
+     */
+    public void setIdPas(int idPas)
+    {
+        this.idPas = idPas;
+    }
 
-	public void afficherInfos(){
-		System.out.println("Les informations du passager est : ");
-		System.out.println("\t - identification : " + id);
-		System.out.println("\t - nom : " + nom);
-		System.out.println("\t - prenom : " + prenom);
-	}
-	
-	
+    /**
+     * @return the nom
+     */
+    public String getNom()
+    {
+        return nom;
+    }
 
-	/**
-	 * @return the id
-	 */
-	public int getId() {
-		return id;
-	}
+    /**
+     * @param nom
+     *            the nom to set
+     */
+    public void setNom(String nom)
+    {
+        this.nom = nom;
+    }
 
-	/**
-	 * @param id
-	 *            the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
+    /**
+     * @return the prenom
+     */
+    public String getPrenom()
+    {
+        return prenom;
+    }
 
-	/**
-	 * @return the nom
-	 */
-	public String getNom() {
-		return nom;
-	}
+    /**
+     * @param prenom
+     *            the prenom to set
+     */
+    public void setPrenom(String prenom)
+    {
+        this.prenom = prenom;
+    }
 
-	/**
-	 * @param nom
-	 *            the nom to set
-	 */
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+    /**
+     * @return the adresse
+     */
+    public Adresse getAdresse()
+    {
+        return adresse;
+    }
 
-	/**
-	 * @return the prenom
-	 */
-	public String getPrenom() {
-		return prenom;
-	}
+    /**
+     * @param adresse
+     *            the adresse to set
+     */
+    public void setAdresse(Adresse adresse)
+    {
+        this.adresse = adresse;
+    }
 
-	/**
-	 * @param prenom
-	 *            the prenom to set
-	 */
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-
-	/**
-	 * @return the adresse
-	 */
-	public Adresse getAdresse() {
-		return adresse;
-	}
-
-	/**
-	 * @param adresse
-	 *            the adresse to set
-	 */
-	public void setAdresse(Adresse adresse) {
-		this.adresse = adresse;
-	}
-
-	/**
-	 * @return the reservationList
-	 */
-	public List<Reservation> getReservationList() {
-		return reservationList;
-	}
-
-
-	/**
-	 * @return the nbPassagers
-	 */
-	public static Integer getNbPassagers() {
-		return nbPassagers;
-	}
-
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString()
+    {
+        return "Passager [idPas=" + idPas + ", nom=" + nom + ", prenom="
+                + prenom + ", adresse=" + adresse + "]";
+    }
 }

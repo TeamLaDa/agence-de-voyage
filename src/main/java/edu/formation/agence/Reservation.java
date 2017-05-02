@@ -3,118 +3,146 @@
  */
 package edu.formation.agence;
 
-import java.sql.Date;
+import java.util.Date;
+
+import edu.formation.agence.EtatReservation;
+import edu.formation.agence.Passager;
 
 /**
- * @author ajc
- *
+ * Réservation d'un vol pour un passager effectuée par un client
+ * 
+ * @author Seme
  */
-public class Reservation {
-	
-	Integer id;
-	Date date;
-	Integer numero;
-	EtatReservation etat;
-	
-	
-	
-	/**
-	 * @param id
-	 * @param date
-	 * @param numero
-	 * @param etat
-	 */
-	public Reservation(Integer id, Date date, Integer numero, EtatReservation etat) {
-		this.id = id;
-		this.date = date;
-		this.numero = numero;
-		this.etat = etat;
-	}
-	
-	
-	public void afficherInfos() {
-		System.out.println("Les informations de la réservations sont : ");
-		System.out.println("\t - identifiant : " + id);
-		System.out.println("\t - date : " + date);
-		System.out.println("\t - numero " + numero);
-		System.out.println("\t - etat : " + etat);
-	}
+public class Reservation
+{
 
+    /**
+     * Id de la réservation
+     */
+    private int idRes;
+    /**
+     * Date de la réservation
+     */
+    private Date date;
+    /**
+     * Numéro de la réservation
+     */
+    private String numero;
+    /**
+     * Etat de la réservation (annulée ou confirmée)
+     */
+    private EtatReservation etat;
+    /**
+     * La référence du passager
+     */
+    private Passager passager;
 
+    /**
+     * Constructeur
+     * 
+     * @param idRes
+     *            Identifiant technique de la réservation
+     */
+    public Reservation(int idRes)
+    {
+        this.idRes = idRes;
+    }
 
-	/**
-	 * @return the id
-	 */
-	public Integer getId() {
-		return id;
-	}
+    /**
+     * @return the idRes
+     */
+    public int getIdRes()
+    {
+        return idRes;
+    }
 
+    /**
+     * @param idRes
+     *            the idRes to set
+     */
+    public void setIdRes(int idRes)
+    {
+        this.idRes = idRes;
+    }
 
+    /**
+     * @return the date
+     */
+    public Date getDate()
+    {
+        return date;
+    }
 
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    /**
+     * @param date
+     *            the date to set
+     */
+    public void setDate(Date date)
+    {
+        this.date = date;
+    }
 
+    /**
+     * @return the numero
+     */
+    public String getNumero()
+    {
+        return numero;
+    }
 
+    /**
+     * @param numero
+     *            the numero to set
+     */
+    public void setNumero(String numero)
+    {
+        this.numero = numero;
+    }
 
-	/**
-	 * @return the date
-	 */
-	public Date getDate() {
-		return date;
-	}
+    /**
+     * @return the etat
+     */
+    public EtatReservation getEtat()
+    {
+        return etat;
+    }
 
+    /**
+     * @param etat
+     *            the etat to set
+     */
+    public void setEtat(EtatReservation etat)
+    {
+        this.etat = etat;
+    }
 
+    /**
+     * @return the passager
+     */
+    public Passager getPassager()
+    {
+        return passager;
+    }
 
-	/**
-	 * @param date the date to set
-	 */
-	public void setDate(Date date) {
-		this.date = date;
-	}
+    /**
+     * @param passager
+     *            the passager to set
+     */
+    public void setPassager(Passager passager)
+    {
+        this.passager = passager;
+    }
 
+    /*
+     * (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString()
+    {
+        String reponse = "Reservation : " + this.numero;
 
-
-	/**
-	 * @return the numero
-	 */
-	public Integer getNumero() {
-		return numero;
-	}
-
-
-
-	/**
-	 * @param numero the numero to set
-	 */
-	public void setNumero(Integer numero) {
-		this.numero = numero;
-	}
-
-
-
-	/**
-	 * @return the etat
-	 */
-	public EtatReservation getEtat() {
-		return etat;
-	}
-
-
-
-	/**
-	 * @param etat the etat to set
-	 */
-	public void setEtat(EtatReservation etat) {
-		this.etat = etat;
-	}
-	
-	
-	
-	
-	
+        return reponse;
+    }
 
 }
