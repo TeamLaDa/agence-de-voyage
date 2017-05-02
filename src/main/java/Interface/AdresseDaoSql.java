@@ -70,6 +70,8 @@ public class AdresseDaoSql implements AdresseDao {
 				ListeAdresse.add(adresse);
 			}
 			
+			connexion.close();
+			
 			
 			
 		} catch (ClassNotFoundException e) {
@@ -78,7 +80,7 @@ public class AdresseDaoSql implements AdresseDao {
 		} catch (SQLException e) {
 			System.err.println("Erreur lors de la connexion à la BDD !");
 			e.printStackTrace();
-		}
+		} 
 
 		// Je retourne la liste des adresses de la BDDonnées
 		return ListeAdresse;
@@ -90,8 +92,77 @@ public class AdresseDaoSql implements AdresseDao {
 	 */
 	@Override
 	public Adresse findById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		// Initialiser ma liste d'adresses
+		Adresse adresse = new Adresse();
+		Connection connexion = null;
+		
+		
+		try {
+			/*
+			 * Etape 0 : chargement du pilote
+			 */
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			/*
+			 * Etape 1 : se connecter à la BDD 
+			 */
+			connexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/agencedevoyage", "user", "password");
+			
+			/*
+			 * Etape 2 : Création du statement
+			 */
+			Statement statement = connexion.createStatement();
+			
+			/*
+			 * Etape 3 : Execution de la requête SQL
+			 */
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM adresse");
+			System.out.println(resultSet);
+			
+			/*
+			 * Etape 4 : Parcours des reusltats
+			 */
+			
+			while (resultSet.next()) {
+				// Chaque ligne du tableau de résultat peur être exploitée
+				// cad, on va récupérer chaque valeur de chaque colonne
+
+				
+				if (resultSet.getInt("idAdd") == id){
+					// Appel des mutateurs
+					adresse.setIdAdd(resultSet.getInt("idAdd"));
+					adresse.setAdresse(resultSet.getString("adresse"));
+					adresse.setCodePostal(resultSet.getString("codePostal"));
+					adresse.setVille(resultSet.getString("ville"));
+					adresse.setPays(resultSet.getString("pays"));
+					// J'ajoute l'objet adresse ainsi muté à la liste des adresses
+					// Adressespecifique.add(adresse);
+				}
+			}
+			
+			
+			
+		} catch (ClassNotFoundException e) {
+			System.err.println("La classe de l'objet est introuvable.");
+			e.printStackTrace();
+		} catch (SQLException e) {
+			System.err.println("Erreur lors de la connexion à la BDD !");
+			e.printStackTrace();
+		} finally {
+			if (connexion != null) {
+				
+			}try {
+				connexion.close();
+			} catch (Exception e2) {
+				System.err.println("Le fichier ne peut pas être fermé !");
+				e2.printStackTrace();
+			}
+		}
+
+		// Je retourne la liste des adresses de la BDDonnées
+		return adresse;
+		
+	
 	}
 
 }
